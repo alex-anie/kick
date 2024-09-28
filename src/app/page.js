@@ -3,6 +3,8 @@ import Image from "next/image";
 import belt from "@/images/belt.jpg"
 import shoe from "@/images/shoe.jpg"
 import watch from "@/images/watch.jpg"
+import BlenderData from "./blenders/page";
+
 
 export default function Home() {
   return (
@@ -16,6 +18,11 @@ export default function Home() {
         <div className="relative h-[30rem]"><Image fill className="object-cover rounded-3xl" src={watch} alt=""/></div>
         <div className="relative h-[30rem]"><Image fill className="object-cover rounded-3xl" src={belt} alt=""/></div>
       </section>
+
+      <section>
+        <BlenderData />
+      </section>
+
     </main>
   );
 }

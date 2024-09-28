@@ -10,8 +10,12 @@ import SearchIcon from "../svg-icons/SearchIcon";
 import UserIcon from "../svg-icons/UserIcon";
 import ChartIcon from "../svg-icons/ChartIcon";
 import VerticalDotLines from "../svg-icons/VerticalDotLines";
+import { CartItemsContext } from "@/app/RootLayoutClient";
 
+import React, { useContext } from 'react'
 export default function Navbar() {
+    const {cartItems} = useContext(CartItemsContext);
+
   return (
     <main>
         <header className="bg-white w-screen fixed left-0 top-0 z-[100]">
@@ -61,10 +65,15 @@ export default function Navbar() {
                         <ChevronDownIcon width={15} height={15}/>
                     </button>
 
-                    <button className="flex gap-2 h-full items-center select-none hover:text-orange-600 cursor-pointer">
+                    <Link href="/cart">
+                    <button className="relative flex gap-2 h-full items-center select-none hover:text-orange-600 cursor-pointer">
                         <ChartIcon width={20} height={20}/>
-                        <Link href="" className="hidden lg:inline-flex">Cart</Link>
+    
+                        <p  className="hidden lg:inline-flex">Cart</p>
+                        {cartItems >= 1 ? ( <span className="absolute bottom-3 left-3 flex items-center justify-center rounded-full font-bold text-[0.45em] bg-orange-600 text-white h-4 w-4">{cartItems}</span>): null}
+                       
                     </button>
+                    </Link>
 
                     <span>
 
